@@ -212,3 +212,7 @@ C:\Users\manue\Proyecto_Pastel\obj\Debug\net9.0\refint\Proyecto_Pastel.dll
 C:\Users\manue\Proyecto_Pastel\obj\Debug\net9.0\Proyecto_Pastel.pdb
 C:\Users\manue\Proyecto_Pastel\obj\Debug\net9.0\Proyecto_Pastel.genruntimeconfig.cache
 C:\Users\manue\Proyecto_Pastel\obj\Debug\net9.0\ref\Proyecto_Pastel.dll
+C:\Users\manue\Proyecto_Pastel\bin\Debug\net9.0\xunit.abstractions.dll
+C:\Users\manue\Proyecto_Pastel\bin\Debug\net9.0\xunit.assert.dll
+C:\Users\manue\Proyecto_Pastel\bin\Debug\net9.0\xunit.core.dll
+C:\Users\manue\Proyecto_Pastel\bin\Debug\net9.0\xunit.execution.dotnet.dll

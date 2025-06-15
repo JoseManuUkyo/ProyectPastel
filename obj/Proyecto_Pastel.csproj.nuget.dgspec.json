@@ -67,6 +67,10 @@
             "Mysql.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
             }
           },
           "imports": [
