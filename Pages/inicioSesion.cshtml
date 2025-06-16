@@ -1,26 +1,26 @@
 @page
 @model Proyecto_Pastel.Pages.LoginModel
 @{
-    ViewData["Title"] = "Inicio de Sesión";
+    Layout = null;
 }
 
-<h2>Inicio de Sesión</h2>
-
-<form method="post">
-    <div>
-        <label asp-for="Username">Usuario:</label>
-        <input asp-for="Username" />
-    </div>
-    <div>
-        <label asp-for="Password">Contraseña:</label>
-        <input asp-for="Password" type="password" />
-    </div>
-    <div>
-        <button type="submit">Iniciar sesión</button>
-    </div>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Iniciar sesión</h2>
+    <form method="post">
+        <label>Usuario:</label><br />
+        <input type="text" name="Username" /><br />
+        <label>Contraseña:</label><br />
+        <input type="password" name="Password" /><br /><br />
+        <button type="submit">Entrar</button>
+    </form>
     @if (!string.IsNullOrEmpty(Model.ErrorMessage))
     {
-        <p style="color:red;">@Model.ErrorMessage</p>
+        <p style="color:red">@Model.ErrorMessage</p>
     }
-</form>
+</body>
+</html>
