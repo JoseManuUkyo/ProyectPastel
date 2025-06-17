@@ -1,0 +1,36 @@
+@page
+@model Proyecto_Pastel.Pages.Inventory.IndexModel
+@{
+    ViewData["Title"] = "Inventario";
+}
+
+<h1>Inventario</h1>
+
+<a asp-page="./Create" class="btn btn-success mb-3">➕ Añadir ingrediente</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Unidad</th>
+            <th>Acciones</th> <!-- Nueva columna -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.inventario)
+        {
+            <tr>
+                <td>@item.id_ingrediente</td>
+                <td>@item.nombre</td>
+                <td>@item.cantidad</td>
+                <td>@item.unidad</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.id_ingrediente" class="btn btn-sm btn-primary">Editar</a>
+                    <a asp-page="./Delete" asp-route-id="@item.id_ingrediente" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
