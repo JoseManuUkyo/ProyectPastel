@@ -1,0 +1,34 @@
+@page
+@model Proyecto_Pastel.Pages.Inventory.CreateModel
+
+@{
+    ViewData["Title"] = "Añadir ingrediente";
+}
+
+<h2 class="mb-4">Añadir ingrediente</h2>
+
+<form method="post" class="p-4 border rounded shadow-sm bg-light" style="max-width: 500px;">
+    <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input asp-for="Ingrediente.nombre" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cantidad:</label>
+        <input asp-for="Ingrediente.cantidad" type="number" step="0.01" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Unidad:</label>
+        <select asp-for="Ingrediente.unidad" class="form-select">
+            <option value="g">g</option>
+            <option value="kg">kg</option>
+            <option value="ml">ml</option>
+            <option value="l">l</option>
+            <option value="unidad">unidad</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-page="./Index" class="btn btn-secondary ms-2">Cancelar</a>
+</form>

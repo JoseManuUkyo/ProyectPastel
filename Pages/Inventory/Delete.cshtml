@@ -1,0 +1,18 @@
+@page "{id:int}"
+@model Proyecto_Pastel.Pages.Inventory.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Ingrediente";
+}
+
+<h2 class="mb-4">¿Estás seguro de que deseas eliminar este ingrediente?</h2>
+
+<div class="p-4 border rounded shadow-sm bg-light mb-3" style="max-width: 500px;">
+    <strong>@Model.Ingrediente.nombre</strong> - 
+    @Model.Ingrediente.cantidad @Model.Ingrediente.unidad
+</div>
+
+<form method="post" class="d-flex gap-2">
+    <input type="hidden" asp-for="Ingrediente.id_ingrediente" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+</form>
