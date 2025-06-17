@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto_Pastel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8adb3038c174c5b75e2ec2322b760b39ae780661")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b8fec23474cfce896f9e6b104cbb971bbe74e5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto_Pastel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto_Pastel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
