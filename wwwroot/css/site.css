@@ -29,3 +29,17 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+header{
+  background-color: rgb(222, 145, 255);
+}
+
+h1{
+  background-color: rgb(222, 145, 255);
+}
+
+h3{
+  background-color: rgb(161, 222, 245);
+  border: 3px, solid ;
+  text-align: center;
+}

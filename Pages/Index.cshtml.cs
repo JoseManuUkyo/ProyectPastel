@@ -1,19 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
-namespace Proyecto_Pastel.Pages;
-
-public class IndexModel : PageModel
+namespace Proyecto_Pastel.Pages
 {
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
+    public class IndexModel : PageModel
     {
-        _logger = logger;
-    }
+        private readonly ILogger<IndexModel> _logger;
 
-    public void OnGet()
-    {
+        public IndexModel(ILogger<IndexModel> logger)
+        {
+            _logger = logger;
+        }
 
+        public IActionResult OnGet()
+        {
+            if (HttpContext.Session.GetString("User") == null)
+            {
+                return RedirectToPage("/InicioSesion");
+            }
+
+            return Page();
+        }
     }
-}
+} 
