@@ -38,7 +38,7 @@ namespace Proyecto_Pastel.Pages
             using var connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            string sql = "SELECT * FROM usuarios WHERE usuario = @username AND contrasena = @password";
+            string sql = "SELECT * FROM usuarios WHERE nombre = @username AND contraseña = @password";
 
             using var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@username", Username);
