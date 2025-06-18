@@ -1,0 +1,89 @@
+@page
+@model Proyecto_Pastel.Pages.Sales.IndexModel
+@{
+    ViewData["Title"] = "Punto de Venta";
+}
+
+<h2 class="mb-4">Punto de Venta</h2>
+
+
+<h5>Agregar postres</h5>
+<form method="post" asp-page-handler="AgregarPostre">
+    <div class="row mb-3">
+        <div class="col-md-5">
+            <label class="form-label">Postre:</label>
+            <select name="idPostre" class="form-select" required>
+                <option value="">-- Seleccionar --</option>
+                @foreach (var postre in Model.PostresDisponibles)
+                {
+                    <option value="@postre.id_postre">@postre.nombre - $@postre.precio_base</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Cantidad:</label>
+            <input name="cantidad" type="number" min="1" class="form-control" required />
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.DetallesVenta.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Postre</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in Model.DetallesVenta)
+            {
+                <tr>
+                    <td>@detalle.Nombre</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>$@detalle.Precio</td>
+                    <td>$@detalle.Subtotal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+
+<!-- <form method="post" asp-page-handler="BuscarUsuario">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label class="form-label">Buscar cliente (nombre):</label>
+            <input type="text" class="form-control" asp-for="BusquedaUsuario" placeholder="Ej. Ana Pérez" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Cliente seleccionado:</label>
+            <select asp-for="UsuarioSeleccionadoId" class="form-select">
+                <option value="">-- Seleccionar --</option>
+                @foreach (var usuario in Model.UsuariosFiltrados)
+                {
+                    <option value="@usuario.id_usuario">@usuario.nombre (@usuario.correo)</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form> -->
+
+<form method="post" asp-page-handler="FinalizarVenta">
+    <input type="hidden" asp-for="UsuarioSeleccionadoId" />
+
+    <div class="d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-primary">Finalizar venta</button>
+        <a asp-page="./Sales" class="btn btn-secondary">Historial de ventas</a>
+    </div>
+</form>

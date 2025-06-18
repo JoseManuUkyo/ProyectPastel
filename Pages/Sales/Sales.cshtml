@@ -1,0 +1,38 @@
+@page
+@model Proyecto_Pastel.Pages.Sales.SalesModel
+@{
+    ViewData["Title"] = "Historial de Ventas";
+}
+
+<h2 class="mb-4">Historial de Ventas</h2>
+
+<table class="table table-bordered shadow-sm bg-white">
+    <thead class="table-light">
+        <tr>
+            <th>ID Venta</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venta in Model.Ventas)
+        {
+            <tr>
+                <td>@venta.id_venta</td>
+                <td>@(venta.fecha_venta?.ToString("g") ?? "Sin fecha")</td>
+                <td>@(venta.id_usuarioNavigation?.nombre ?? "Venta anónima")</td>
+                <td>
+                    <ul class="mb-0">
+                        @foreach (var detalle in venta.detalle_venta)
+                        {
+                            <li>
+                                @detalle.id_postreNavigation?.nombre x @detalle.cantidad a $@detalle.precio_unitario = <strong>$@detalle.subtotal</strong>
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
