@@ -4358,19 +4358,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jorge\\.nuget\\packages\\": {}
+    "C:\\Users\\manue\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj",
+      "projectUniqueName": "C:\\Users\\manue\\ProyectPDS-Pastel\\Proyecto Final - PDS\\1.- Codigo fuente del proyecto\\Proyecto_Pastel.csproj",
       "projectName": "Proyecto_Pastel",
-      "projectPath": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj",
-      "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\obj\\",
+      "projectPath": "C:\\Users\\manue\\ProyectPDS-Pastel\\Proyecto Final - PDS\\1.- Codigo fuente del proyecto\\Proyecto_Pastel.csproj",
+      "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\manue\\ProyectPDS-Pastel\\Proyecto Final - PDS\\1.- Codigo fuente del proyecto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\manue\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
