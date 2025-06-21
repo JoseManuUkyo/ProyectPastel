@@ -144,3 +144,13 @@ CREATE TABLE movimientos_inventario (
     FOREIGN KEY (id_ingrediente) REFERENCES inventario(id_ingrediente),
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
+-- Tabla para registrar la salida de insumos del inventario
+CREATE TABLE salida_insumos (
+    id_salida INT AUTO_INCREMENT PRIMARY KEY,
+    id_ingrediente INT NOT NULL,
+    cantidad DECIMAL(10,2) NOT NULL,
+    motivo VARCHAR(255) NOT NULL,
+    fecha DATETIME NOT NULL,
+    usuario VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_ingrediente) REFERENCES inventario(id_ingrediente)
+);

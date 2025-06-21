@@ -1,0 +1,78 @@
+@page
+@model Proyecto_Pastel.Pages.Inventory.RegistrarSalidaModel
+@{
+    ViewData["Title"] = "Registrar Salida de Insumo";
+}
+
+<h1>Registrar Salida de Insumo</h1>
+
+<!-- ✅ Mensaje de éxito -->
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["MensajeExito"]
+    </div>
+}
+
+<!-- ✅ Formulario de salida -->
+<form method="post">
+    <div class="form-group">
+        <label for="IdIngrediente">Ingrediente</label>
+        <select asp-for="IdIngrediente" asp-items="Model.Ingredientes" class="form-control">
+            <option value="">-- Selecciona un ingrediente --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Cantidad">Cantidad</label>
+        <input asp-for="Cantidad" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Motivo">Motivo</label>
+        <input asp-for="Motivo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Descripcion">Descripción (opcional)</label>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar Salida</button>
+</form>
+<hr />
+
+<h2>Salidas Registradas</h2>
+
+@if (Model.SalidasRegistradas != null && Model.SalidasRegistradas.Count > 0)
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Ingrediente</th>
+                <th>Cantidad</th>
+                <th>Motivo</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salida in Model.SalidasRegistradas)
+            {
+                <tr>
+                    <td>@salida.id_ingredienteNavigation.nombre</td>
+                    <td>@salida.cantidad</td>
+                    <td>@salida.motivo</td>
+                    <td>@salida.descripcion</td>
+                    <td>(@salida.fecha_movimiento?.ToString("dd/MM/yyyy HH:mm"))</td>
+                    <td>@salida.id_usuarioNavigation.nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay salidas registradas aún.</p>
+}
