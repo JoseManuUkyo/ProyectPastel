@@ -16,4 +16,6 @@ public partial class inventario
     public DateTime? fecha_actualizacion { get; set; }
 
     public virtual ICollection<ingredientes_receta> ingredientes_receta { get; set; } = new List<ingredientes_receta>();
+
+    public virtual ICollection<movimientos_inventario> movimientos_inventario { get; set; } = new List<movimientos_inventario>();
 }
