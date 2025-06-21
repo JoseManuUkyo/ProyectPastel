@@ -1,0 +1,59 @@
+@page
+@model Proyecto_Pastel.Pages.Production.IndexModel
+@{
+    ViewData["Title"] = "Producción";
+}
+
+<div class="container mt-4">
+    <h1 class="text-2xl font-bold mb-4">Producción de Postres</h1>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div class="alert alert-info">@Model.Mensaje</div>
+    }
+
+    <form method="post">
+        <div class="form-group">
+            <label for="idReceta">Selecciona una receta:</label>
+            <select asp-for="IdRecetaSeleccionada" class="form-control" asp-items="Model.RecetasSelectList">
+                <option value="">-- Selecciona una receta --</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="cantidad">Cantidad a producir:</label>
+            <input asp-for="CantidadProduccion" type="number" min="1" class="form-control" />
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" name="accion" value="previsualizar" class="btn btn-secondary">Ver Ingredientes</button>
+            <button type="submit" name="accion" value="producir" class="btn btn-primary">Confirmar Producción</button>
+        </div>
+    </form>
+
+    @if (Model.IngredientesPrevios != null && Model.IngredientesPrevios.Any())
+    {
+        <h3 class="mt-5">Ingredientes necesarios:</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ingrediente</th>
+                    <th>Disponible</th>
+                    <th>Se utilizarán</th>
+                    <th>Restante</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.IngredientesPrevios)
+                {
+                    <tr>
+                        <td>@item.NombreIngrediente</td>
+                        <td>@item.Disponible</td>
+                        <td>@item.AUsar</td>
+                        <td>@item.Restante</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
