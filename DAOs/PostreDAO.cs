@@ -20,5 +20,15 @@ namespace Proyecto_Pastel.DAOs
         {
             return db.postres.ToList();
         }
+
+        public void ActualizarPostre(postres postre)
+        {
+            var existente = db.postres.Find(postre.id_postre);
+            if (existente != null)
+            {
+                existente.cantidad_disponible = postre.cantidad_disponible;
+                db.SaveChanges();
+            }
+        }
     }
 }
