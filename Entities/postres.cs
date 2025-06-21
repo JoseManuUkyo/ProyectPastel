@@ -15,6 +15,8 @@ public partial class postres
 
     public DateTime? fecha_creacion { get; set; }
 
+    public int cantidad_disponible { get; set; }
+
     public virtual ICollection<detalle_venta> detalle_venta { get; set; } = new List<detalle_venta>();
 
     public virtual ICollection<recetas> recetas { get; set; } = new List<recetas>();

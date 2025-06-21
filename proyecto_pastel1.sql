@@ -8,7 +8,8 @@ CREATE TABLE usuarios (
     nombre VARCHAR(100) NOT NULL,
     correo VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_usuario ENUM('Administrador', 'Empleado', 'Cliente') NOT NULLs
 );
 
 -- Tabla de postres
@@ -126,3 +127,21 @@ VALUES (1, 1, 2, 150.00);
 -- Detalle: compró 1 Tarta de Fresa a 120.00
 INSERT INTO detalle_venta (id_venta, id_postre, cantidad, precio_unitario)
 VALUES (1, 2, 1, 120.00);
+
+-- Agregar columna a la tabla postres
+ALTER TABLE postres
+ADD COLUMN cantidad_disponible INT NOT NULL DEFAULT 0;
+
+-- Tabla para registrar movimientos del inventario
+CREATE TABLE movimientos_inventario (
+    id_movimiento INT AUTO_INCREMENT PRIMARY KEY,
+    id_ingrediente INT NOT NULL,
+    id_usuario INT NOT NULL,
+    tipo_movimiento ENUM('entrada', 'salida') NOT NULL,
+    motivo ENUM('ajuste', 'descompuesto', 'producción', 'otro') NOT NULL,
+    cantidad DECIMAL(10,2) NOT NULL,
+    fecha_movimiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    descripcion TEXT,
+    FOREIGN KEY (id_ingrediente) REFERENCES inventario(id_ingrediente),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);

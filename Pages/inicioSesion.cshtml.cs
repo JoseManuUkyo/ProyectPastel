@@ -1,11 +1,19 @@
- using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace Proyecto_Pastel.Pages
 {
     public class LoginModel : PageModel
     {
+        private readonly IConfiguration _configuration;
+
+        public LoginModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [BindProperty]
         public string Username { get; set; }
 
@@ -16,7 +24,6 @@ namespace Proyecto_Pastel.Pages
 
         public IActionResult OnGet()
         {
-            // Si ya está autenticado, redirige
             if (HttpContext.Session.GetString("User") != null)
             {
                 return RedirectToPage("/Index");
@@ -26,11 +33,12 @@ namespace Proyecto_Pastel.Pages
 
         public IActionResult OnPost()
         {
-            string connectionString = "server=localhost;user=root;password=Camila2015;database=proyecto_pastel;";
+            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+
             using var connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            string sql = "SELECT * FROM usuarios WHERE usuario = @username AND contrasena = @password";
+            string sql = "SELECT * FROM usuarios WHERE nombre = @username AND contraseña = @password";
 
             using var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@username", Username);

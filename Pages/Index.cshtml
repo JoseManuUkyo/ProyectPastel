@@ -1,10 +1,57 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Prim_Delice - Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Prim Delice</h1>
+         <h2>Bienvenidos esta es nuestra página de productos de Prim Delice</h2>
+    <div > 
+        <h3 aria-label="Abajo del titulo están los botones que te llevan a las páginas 
+        ue desea ver.">¿Qué es lo que deseas hacer?</h3>
+    </div>
+
+    <section aria-label="Listado de animes"></section>
+            <h3>Información de datos / productos a la venta</h3>
+            <div role="tablist" aria-label="Listado de animes">
+                <button role="tab" id="tab1" aria-selected="true" aria-controls="pes1">Quienes somos</button>
+                <button role="tab" id="tab2" aria-selected="true" aria-controls="pes2">Listado de Productos</button>
+            </div>
+
+            <div id="pes1" role="tabpanel" tabindex="0" aria-labelledby="tab1">
+                <h2>Quienes somos</h2>
+                <fieldset>Inicios de Prim Delice
+                    <hr>
+                    
+                    Somos una pequeña empresa que Inicios ventas a principios del año 2022, anteriormente trabajabamos en la venta de productos
+                    en general, esto comenzo en facebook con ventas; pero con el paso del tiempo se mostro que algunas cosas que se venden más
+                    son productos relacionados con la comida, en especial en el area de los postres. Con eso en mente, algunos postres que se hicieron
+                    desde el principio son las carlotas de limon, mango y de oreo. Además de preparar helados de agua y leche. Con estos dos postres
+                    se fue expendiendo a otros postres como pasteles, cupcakes, galletas, entre otros postres para el deleite de los comnesales.
+                </fieldset>
+                <br>
+                <div id="delice"></div>
+            </div>
+
+            <div id="pes2" role="tabpanel"  tabindex="0" aria-labelledby="tab2">
+                <h2>Productos que están o estaran "En Venta"</h2>
+                <fieldset>Producto En vente o proximamente
+                    <hr>
+                    <li>------Productos------ -------- Existencia</li>
+                    <ol type="1">
+                        <hr>
+                        <li>Pastel de Tres Leches -------- Disponible</li>
+                        <li>-Panques de Limon---- -------- Disponible</li>
+                        <li>--Carlotas de Limón-- -------- No Disponible</li>
+                        <li>Helados de agua (VS)- -------- Disponible</li>
+                        <li>---galletas de Nuez-- -------- No Disponible</li>
+                    </ol> 
+                </fieldset>
+            </div>
+        </section>
+
+    <footer class="footer">
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </footer>
 </div>

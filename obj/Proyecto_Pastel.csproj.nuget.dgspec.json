@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[9.0.3, )"
             },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.9.3, )"

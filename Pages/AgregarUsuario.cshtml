@@ -1,0 +1,44 @@
+@page
+@model AgregarUsuarioModel
+@{
+    ViewData["Title"] = "Agregar Usuario";
+}
+
+<div class="container">
+    <h2>Agregar Nuevo Usuario</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Usuario.nombre" class="control-label">Nombre</label>
+            <input asp-for="Usuario.nombre" class="form-control" />
+            <span asp-validation-for="Usuario.nombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Usuario.correo" class="control-label">Correo</label>
+            <input asp-for="Usuario.correo" class="form-control" />
+            <span asp-validation-for="Usuario.correo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Usuario.contraseña" class="control-label">Contraseña</label>
+            <input asp-for="Usuario.contraseña" type="password" class="form-control" />
+            <span asp-validation-for="Usuario.contraseña" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Usuario.tipo_usuario" class="control-label">Tipo de Usuario</label>
+            <select asp-for="Usuario.tipo_usuario" class="form-control">
+            <option value="Cliente">Cliente</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Administrador">Administrador</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        <a asp-page="/ListaUsuarios" class="btn btn-primary mt-3">Ver Lista de Usuarios</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
