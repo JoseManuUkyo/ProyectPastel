@@ -1,0 +1,24 @@
+@page
+@model Proyecto_Pastel.Pages.Postres.CreateModel
+@{
+    ViewData["Title"] = "Agregar nuevo postre";
+}
+
+<h2>Agregar nuevo postre</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input asp-for="NuevoPostre.nombre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción:</label>
+        <textarea asp-for="NuevoPostre.descripcion" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precio base:</label>
+        <input asp-for="NuevoPostre.precio_base" type="number" step="0.01" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-page="/Sales/Index" class="btn btn-secondary">Cancelar</a>
+</form>

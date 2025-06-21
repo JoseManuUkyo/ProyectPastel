@@ -20,5 +20,11 @@ namespace Proyecto_Pastel.DAOs
         {
             return db.postres.ToList();
         }
+
+        public void Insertar(postres nuevo)
+        {
+            db.postres.Add(nuevo);
+            db.SaveChanges();
+        }
     }
 }
