@@ -15,5 +15,7 @@ public partial class usuarios
 
     public DateTime? fecha_registro { get; set; }
 
+    public virtual ICollection<movimientos_inventario> movimientos_inventario { get; set; } = new List<movimientos_inventario>();
+
     public virtual ICollection<ventas> ventas { get; set; } = new List<ventas>();
 }

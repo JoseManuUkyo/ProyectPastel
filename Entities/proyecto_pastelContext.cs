@@ -21,6 +21,8 @@ public partial class proyecto_pastelContext : DbContext
 
     public virtual DbSet<inventario> inventario { get; set; }
 
+    public virtual DbSet<movimientos_inventario> movimientos_inventario { get; set; }
+
     public virtual DbSet<postres> postres { get; set; }
 
     public virtual DbSet<recetas> recetas { get; set; }
@@ -90,6 +92,33 @@ public partial class proyecto_pastelContext : DbContext
                 .HasColumnType("timestamp");
             entity.Property(e => e.nombre).HasMaxLength(100);
             entity.Property(e => e.unidad).HasColumnType("enum('g','kg','ml','l','unidad')");
+        });
+
+        modelBuilder.Entity<movimientos_inventario>(entity =>
+        {
+            entity.HasKey(e => e.id_movimiento).HasName("PRIMARY");
+
+            entity.HasIndex(e => e.id_ingrediente, "id_ingrediente");
+
+            entity.HasIndex(e => e.id_usuario, "id_usuario");
+
+            entity.Property(e => e.cantidad).HasPrecision(10);
+            entity.Property(e => e.descripcion).HasColumnType("text");
+            entity.Property(e => e.fecha_movimiento)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp");
+            entity.Property(e => e.motivo).HasColumnType("enum('ajuste','descompuesto','producción','otro')");
+            entity.Property(e => e.tipo_movimiento).HasColumnType("enum('entrada','salida')");
+
+            entity.HasOne(d => d.id_ingredienteNavigation).WithMany(p => p.movimientos_inventario)
+                .HasForeignKey(d => d.id_ingrediente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("movimientos_inventario_ibfk_1");
+
+            entity.HasOne(d => d.id_usuarioNavigation).WithMany(p => p.movimientos_inventario)
+                .HasForeignKey(d => d.id_usuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("movimientos_inventario_ibfk_2");
         });
 
         modelBuilder.Entity<postres>(entity =>
