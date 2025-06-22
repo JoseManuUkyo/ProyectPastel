@@ -18,6 +18,7 @@
     </PackageReference>
     <PackageReference Include="Mysql.Data" Version="9.3.0" />
     <PackageReference Include="Mysql.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
   </ItemGroup>
 

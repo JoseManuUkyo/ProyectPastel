@@ -5,6 +5,7 @@ namespace Proyecto_Pastel.DAOs
     public class UsuarioDAO
     {
         private proyecto_pastelContext db = new();
+        
 
         public usuarios? ObtenerPorId(int id)
         {
@@ -21,6 +22,13 @@ namespace Proyecto_Pastel.DAOs
             return db.usuarios
                 .Where(u => u.nombre.Contains(nombre))
                 .ToList();
+        }
+        //Esta linea se copia en el proyectoFinal
+        public void AgregarUsuario(usuarios usuario)
+        {
+            usuario.fecha_registro = DateTime.Now;
+            db.usuarios.Add(usuario);
+            db.SaveChanges();
         }
     }
 }
