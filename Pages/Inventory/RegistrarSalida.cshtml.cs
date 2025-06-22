@@ -87,7 +87,7 @@ namespace Proyecto_Pastel.Pages.Inventory
             var nuevoMovimiento = new movimientos_inventario
             {
                 id_ingrediente = IdIngrediente,
-                id_usuario = 1, // ← Cambiar esto si tienes autenticación
+                id_usuario = 1,
                 tipo_movimiento = "salida",
                 motivo = Motivo,
                 cantidad = Cantidad,

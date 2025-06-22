@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Pastel.Entities;
-using Proyecto_Pastel.services; // ← Asegúrate de tener esto al inicio
+using Proyecto_Pastel.services;
 
 var builder = WebApplication.CreateBuilder(args);
 
