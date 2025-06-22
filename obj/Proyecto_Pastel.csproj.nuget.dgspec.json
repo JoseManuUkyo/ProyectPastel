@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Documents\\Procesos de Desarrollo de Software\\ProyectPastel-main\\ProyectPastel\\Proyecto_Pastel.csproj": {}
+    "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Documents\\Procesos de Desarrollo de Software\\ProyectPastel-main\\ProyectPastel\\Proyecto_Pastel.csproj": {
+    "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Documents\\Procesos de Desarrollo de Software\\ProyectPastel-main\\ProyectPastel\\Proyecto_Pastel.csproj",
+        "projectUniqueName": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj",
         "projectName": "Proyecto_Pastel",
-        "projectPath": "C:\\Users\\DELL\\Documents\\Procesos de Desarrollo de Software\\ProyectPastel-main\\ProyectPastel\\Proyecto_Pastel.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Documents\\Procesos de Desarrollo de Software\\ProyectPastel-main\\ProyectPastel\\obj\\",
+        "projectPath": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\Proyecto_Pastel.csproj",
+        "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jorge\\Repositorios\\ProyectPastel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
