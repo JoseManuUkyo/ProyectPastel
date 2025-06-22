@@ -9,7 +9,7 @@ CREATE TABLE usuarios (
     correo VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    tipo_usuario ENUM('Administrador', 'Empleado', 'Cliente') NOT NULLs
+    tipo_usuario ENUM('Administrador', 'Empleado', 'Cliente') NOT NULL
 );
 
 -- Tabla de postres
