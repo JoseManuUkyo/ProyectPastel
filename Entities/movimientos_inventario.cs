@@ -24,4 +24,5 @@ public partial class movimientos_inventario
     public virtual inventario id_ingredienteNavigation { get; set; } = null!;
 
     public virtual usuarios id_usuarioNavigation { get; set; } = null!;
+
 }

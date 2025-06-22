@@ -1,34 +1,39 @@
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Pastel.Entities;
+using Proyecto_Pastel.DAOs; // Para UsuarioDAO
+using Proyecto_Pastel.services; // Para IProduccionService y ProduccionService
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddSession();
-builder.Services.AddScoped<Proyecto_Pastel.DAOs.UsuarioDAO>();
+// Configuración del contexto con Pomelo y versión específica de MySQL
 builder.Services.AddDbContext<proyecto_pastelContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 40)) // Ajusta la versión
-    ));
+        new MySqlServerVersion(new Version(8, 0, 40))
+    )
+);
+
+// Registro de servicios adicionales
+builder.Services.AddRazorPages();
+builder.Services.AddSession();
+
+// Registro de DAOs y servicios personalizados
+builder.Services.AddScoped<UsuarioDAO>();
+builder.Services.AddScoped<IProduccionService, ProduccionService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuración del pipeline HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseRouting();
-
 app.UseSession();
-
 app.UseAuthorization();
 
 app.MapStaticAssets();
