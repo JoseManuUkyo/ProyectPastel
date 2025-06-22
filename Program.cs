@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Proyecto_Pastel.Entities;
 using Proyecto_Pastel.services; // ← Asegúrate de tener esto al inicio
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Registro de salidas
+builder.Services.AddDbContext<proyecto_pastelContext>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddRazorPages();

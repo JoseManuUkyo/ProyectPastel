@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyecto_Pastel.Entities;
 
@@ -15,6 +16,7 @@ public partial class detalle_venta
 
     public decimal precio_unitario { get; set; }
 
+    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public decimal? subtotal { get; set; }
 
     public virtual postres id_postreNavigation { get; set; } = null!;
