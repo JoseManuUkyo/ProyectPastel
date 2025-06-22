@@ -23,6 +23,7 @@ namespace Proyecto_Pastel.DAOs
                 .Where(u => u.nombre.Contains(nombre))
                 .ToList();
         }
+        //Esta linea se copia en el proyectoFinal
         public void AgregarUsuario(usuarios usuario)
         {
             usuario.fecha_registro = DateTime.Now;

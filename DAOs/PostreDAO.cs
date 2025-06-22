@@ -30,5 +30,11 @@ namespace Proyecto_Pastel.DAOs
                 db.SaveChanges();
             }
         }
+        //Esta linea se copia al trabajo final
+        public void Insertar(postres nuevo)
+        {
+            db.postres.Add(nuevo);
+            db.SaveChanges();
+        }
     }
 }

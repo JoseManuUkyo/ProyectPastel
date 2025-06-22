@@ -44,5 +44,12 @@ namespace Proyecto_Pastel.DAOs
 
             db.SaveChanges();
         }
+        public void Insertar(postres nuevoPostre)
+        {
+            using var db = new proyecto_pastelContext();
+
+            db.postres.Add(nuevoPostre);
+            db.SaveChanges(); 
+        }
     }
 }
