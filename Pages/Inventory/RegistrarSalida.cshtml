@@ -61,12 +61,12 @@
             @foreach (var salida in Model.SalidasRegistradas)
             {
                 <tr>
-                    <td>@salida.id_ingredienteNavigation.nombre</td>
+                    <td>@(salida.id_ingredienteNavigation?.nombre ?? "Ingrediente desconocido")</td>
                     <td>@salida.cantidad</td>
                     <td>@salida.motivo</td>
                     <td>@salida.descripcion</td>
                     <td>(@salida.fecha_movimiento?.ToString("dd/MM/yyyy HH:mm"))</td>
-                    <td>@salida.id_usuarioNavigation.nombre</td>
+                    <td>@(salida.id_usuarioNavigation?.nombre ?? "Usuario Desconocido")</td>
                 </tr>
             }
         </tbody>
